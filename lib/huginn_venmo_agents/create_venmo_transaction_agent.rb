@@ -70,10 +70,10 @@ module Agents
         if event.payload['amount'] < 0
           error('Disallowing payment (this Agent is too new/dangerous for this to be enabled)')
           next
-        elsif agent['user_id'].nil?
+        elsif event.payload['user_id'].nil?
           error('Payment requires a user_id key in the calling event')
           next
-        elsif agent['note'].nil?
+        elsif event.payload['note'].nil?
           error('Payment requires a note key in the calling event')
           next
         end
