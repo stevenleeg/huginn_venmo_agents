@@ -1,4 +1,4 @@
-require 'huginn_venmo_agent'
+require 'huginn_venmo_agents'
 require 'rails'
 
 module MyGem

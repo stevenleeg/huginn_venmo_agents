@@ -56,9 +56,16 @@ module Agents
     end
 
     def check
+      if memory['last_success'].nil?
+        true
+      else
+        memory['last_success']
+      end
     end
 
     def receive(incoming_events)
+      memory['last_success'] = false
+
       incoming_events.each do |event|
         if event['amount'] < 0
           error('Disallowing payment (this Agent is too new/dangerous for this to be enabled)')
@@ -84,25 +91,12 @@ module Agents
 
         if resp.status >= 200 && resp.status < 300
           log("Success!")
+          memory['last_success'] = true
           create_event payload: resp.body.parse
         else
           error("Error creating payment (#{resp.status}): #{resp.body.parse}")
         end
       end
-    end
-
-    def self.generate_device_id
-      random_string = '88884260-05O3-8U81-58I1-2WA76F357GR9'.split('').map do |char|
-        if /^[0-9]$/.match?(char)
-          (0..9).to_a.sample
-        elsif char == '-'
-          '-'
-        else
-          ('A'..'Z').to_a.sample
-        end
-      end
-
-      random_string.join('')
     end
   end
 end

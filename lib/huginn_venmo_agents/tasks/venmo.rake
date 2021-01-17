@@ -1,5 +1,19 @@
 require 'huginn_venmo_agent'
 
+def generate_device_id
+  random_string = '88884260-05O3-8U81-58I1-2WA76F357GR9'.split('').map do |char|
+    if /^[0-9]$/.match?(char)
+      (0..9).to_a.sample
+    elsif char == '-'
+      '-'
+    else
+      ('A'..'Z').to_a.sample
+    end
+  end
+
+  random_string.join('')
+end
+
 namespace :venmo do
   API_BASE = 'https://api.venmo.com/v1'
 
@@ -27,7 +41,7 @@ namespace :venmo do
   end
 
   task authenticate: :environment do
-    device_id = Agents::VenmoAgent.generate_device_id
+    device_id = generate_device_id
     puts "Your device ID is #{device_id} (save this!)"
     print "Venmo Username: "
     username = STDIN.gets.chomp
