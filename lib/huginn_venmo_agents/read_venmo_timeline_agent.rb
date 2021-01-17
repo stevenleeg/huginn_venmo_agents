@@ -16,7 +16,7 @@ module Agents
       Note that this agent requires you to generate a Venmo access token. This
       can be a bit tricky, but there is a rake task included with the Gem that
       should make the process easier. See the
-      [documentation](https://github.com/stevenleeg/huginn_venmo_agent) for
+      [documentation](https://github.com/stevenleeg/huginn_venmo_agents) for
       details.
 
       ## Event schema

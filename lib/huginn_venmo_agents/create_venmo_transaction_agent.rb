@@ -18,7 +18,7 @@ module Agents
       can be a bit tricky, but there is a rake task included with the Gem that
       should make the process easier. You'll also need to find your friends'
       Venmo IDs, which is also tricky but has an associated take task included.
-      See the [documentation](https://github.com/stevenleeg/huginn_venmo_agent)
+      See the [documentation](https://github.com/stevenleeg/huginn_venmo_agents)
       for details on how to accomplish both of these.
 
       ## Event schema

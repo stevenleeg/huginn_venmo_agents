@@ -14,7 +14,7 @@ ADDITIONAL_GEMS=huginn_venmo_agents
 or, if you wish to stay on the bleeding edge:
 
 ```
-ADDITIONAL_GEMS=huginn_venmo_agents(git:https://github.com/stevenleeg/huginn_venmo_agent.git)
+ADDITIONAL_GEMS=huginn_venmo_agents(git:https://github.com/stevenleeg/huginn_venmo_agents.git)
 ```
 
 ## Usage
