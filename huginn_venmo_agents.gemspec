@@ -2,14 +2,14 @@ lib = File.expand_path('../lib', __FILE__)
 $LOAD_PATH.unshift(lib) unless $LOAD_PATH.include?(lib)
 
 Gem::Specification.new do |spec|
-  spec.name          = 'huginn_venmo_agent'
+  spec.name          = 'huginn_venmo_agents'
   spec.version       = '0.1.0'
   spec.authors       = ['Steve Gattuso']
   spec.email         = ['steve@stevegattuso.me']
 
-  spec.summary       = 'Huginn Agent to interact with the Venmo API'
+  spec.summary       = 'Huginn Agents for interacting with the Venmo API'
 
-  spec.homepage      = 'https://github.com/stevenleeg/huginn_venmo_agent'
+  spec.homepage      = 'https://github.com/stevenleeg/huginn_venmo_agents'
 
 
   spec.files         = Dir['LICENSE.txt', 'lib/**/*']
