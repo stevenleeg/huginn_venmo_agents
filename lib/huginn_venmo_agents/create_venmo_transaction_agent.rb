@@ -94,7 +94,7 @@ module Agents
           memory['last_success'] = true
           create_event payload: resp.parse
         else
-          error("Error creating payment (#{resp.status}): #{resp.body.parse}")
+          error("Error creating payment (#{resp.status}): #{resp.parse}")
         end
       end
     end
