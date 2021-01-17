@@ -80,7 +80,7 @@ module Agents
 
         log("Requesting $#{event.payload['amount']} from #{event.payload['user_id']}")
         resp = HTTP
-          .auth("Bearer #{options['venmo_token']}")
+          .auth("Bearer #{interpolated['venmo_token']}")
           .post("#{API_BASE}/payments", json: {
             note: event.payload['note'],
             amount: event.payload['amount'] * -1,
