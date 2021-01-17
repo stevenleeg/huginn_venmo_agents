@@ -1,10 +1,38 @@
 module Agents
-  class VenmoAgent < Agent
+  class CreateVenmoTransactionAgent < Agent
     API_BASE = 'https://api.venmo.com/v1'
 
     include FormConfigurable
 
     can_dry_run!
+
+    description <<-MD
+      This agent connects your Huginn instance to the
+      [unofficial Venmo API](https://github.com/mmohades/VenmoApiDocumentation),
+      allowing you to create Venmo transactions by sending it properly
+      formatted events. Generally you'll want to use this in combination with a
+      Javascript agent, which will allow you to intake arbitrary events and
+      properly transform them into the event schema expected by this agent.
+
+      Note that this agent requires you to generate a Venmo access token. This
+      can be a bit tricky, but there is a rake task included with the Gem that
+      should make the process easier. You'll also need to find your friends'
+      Venmo IDs, which is also tricky but has an associated take task included.
+      See the [documentation](https://github.com/stevenleeg/huginn_venmo_agent)
+      for details on how to accomplish both of these.
+
+      ## Event schema
+      This agent accepts events in the following format:
+      
+          {
+            "amount": 15.23,
+            "user_id": "987435897345987",
+            "note": "Some text goes here"
+          }
+
+      Regardless of the result, the agent will _not_ transmit any outgoing
+      events. It will, however, log whether or not the query was successful.
+    MD
 
     def working?
       true
@@ -23,7 +51,7 @@ module Agents
 
     def default_options
       {
-        'venmo_token' => '{% credential VENMO_TOKEN %}',
+        'venmo_token' => '{% credential venmo_token %}',
       }
     end
 
