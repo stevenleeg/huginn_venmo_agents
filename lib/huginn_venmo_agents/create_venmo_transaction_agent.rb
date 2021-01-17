@@ -92,7 +92,7 @@ module Agents
         if resp.status >= 200 && resp.status < 300
           log("Success!")
           memory['last_success'] = true
-          create_event payload: resp.body.parse
+          create_event payload: resp.parse
         else
           error("Error creating payment (#{resp.status}): #{resp.body.parse}")
         end
