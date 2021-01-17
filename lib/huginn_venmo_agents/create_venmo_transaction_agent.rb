@@ -67,7 +67,7 @@ module Agents
       memory['last_success'] = false
 
       incoming_events.each do |event|
-        if event['amount'] < 0
+        if event.payload['amount'] < 0
           error('Disallowing payment (this Agent is too new/dangerous for this to be enabled)')
           next
         elsif agent['user_id'].nil?
