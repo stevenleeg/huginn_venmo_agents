@@ -1,4 +1,4 @@
-require 'huginn_venmo_agent'
+require 'huginn_venmo_agents'
 
 def generate_device_id
   random_string = '88884260-05O3-8U81-58I1-2WA76F357GR9'.split('').map do |char|

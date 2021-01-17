@@ -1,4 +1,4 @@
-# Venmo Agent
+# Venmo Agents
 This gem implements agents for [Huginn](https://github.com/huginn/huginn) which provide an interface for interacting with the [unofficial Venmo API](https://github.com/mmohades/VenmoApiDocumentation):
 
 * `ReadVenmoTimelineAgent` - Allows you to monitor your Venmo timeline for new transactions.
@@ -8,13 +8,13 @@ This gem implements agents for [Huginn](https://github.com/huginn/huginn) which 
 Like any other Huginn agent, you may install this agent by adding the following to your `.env` file:
 
 ```
-ADDITIONAL_GEMS=huginn_venmo_agent
+ADDITIONAL_GEMS=huginn_venmo_agents
 ```
 
 or, if you wish to stay on the bleeding edge:
 
 ```
-ADDITIONAL_GEMS=huginn_sqlite3_agent(git:https://github.com/stevenleeg/huginn_venmo_agent.git)
+ADDITIONAL_GEMS=huginn_venmo_agents(git:https://github.com/stevenleeg/huginn_venmo_agent.git)
 ```
 
 ## Usage
